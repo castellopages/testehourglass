@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Guia simples com instruções passo a passo.">
+  <title>Guia Rápido</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ice: #f4f5f1;
+      --white: #ffffff;
+      --black: #171717;
+      --gold: #a47a2c;
+      --gold-dark: #79591f;
+      --gold-light: #eee3cd;
+      --line: #dedbd2;
+      --muted: #6d6d68;
+      --soft: #faf9f5;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: var(--ice);
+      color: var(--black);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(100%, 1100px);
+      margin: 0 auto;
+      background: var(--white);
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    header {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.96);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      max-width: 900px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -.5px;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    .nav-link {
+      color: var(--gold-dark);
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid var(--gold);
+      padding: 8px 13px;
+      border-radius: 30px;
+    }
+
+    main {
+      width: min(100% - 32px, 900px);
+      margin: auto;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 58px 0 45px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--gold-dark);
+      background: var(--gold-light);
+      border-radius: 30px;
+      padding: 7px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .eyebrow-icon {
+      width: 17px;
+      height: 17px;
+      display: grid;
+      place-items: center;
+      border: 1.5px solid var(--gold);
+      border-radius: 50%;
+      font-size: 10px;
+    }
+
+    h1 {
+      font-size: clamp(31px, 8vw, 58px);
+      line-height: 1.08;
+      letter-spacing: -1.8px;
+      max-width: 760px;
+      margin: 0 auto 17px;
+    }
+
+    h1 span {
+      color: var(--gold);
+    }
+
+    .hero-text {
+      max-width: 600px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .hero-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 26px;
+      padding: 13px 20px;
+      border-radius: 30px;
+      background: var(--black);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .hero-button span {
+      margin-left: 10px;
+      color: var(--gold);
+      font-size: 16px;
+    }
+
+    .section {
+      padding: 48px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(24px, 6vw, 38px);
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 10px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 13px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .steps {
+      display: grid;
+      gap: 14px;
+    }
+
+    .step {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 23px;
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--gold-light);
+      color: var(--gold-dark);
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .step h3 {
+      font-size: 17px;
+      margin: 2px 0 6px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .tip {
+      margin-top: 22px;
+      padding: 19px;
+      border-left: 4px solid var(--gold);
+      background: var(--gold-light);
+      border-radius: 0 15px 15px 0;
+    }
+
+    .tip strong {
+      display: block;
+      color: var(--gold-dark);
+      font-size: 14px;
+      margin-bottom: 3px;
+    }
+
+    .tip p {
+      font-size: 12px;
+      color: #5f5545;
+    }
+
+    .example {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    .example-box {
+      border-radius: 20px;
+      padding: 25px;
+      min-height: 180px;
+      border: 1px solid var(--line);
+      background: var(--soft);
+    }
+
+    .example-box.dark {
+      background: var(--black);
+      color: white;
+      border-color: var(--black);
+    }
+
+    .icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: var(--gold-light);
+      color: var(--gold-dark);
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .dark .icon {
+      background: #2b2b2b;
+      color: #d4ad63;
+    }
+
+    .example-box h3 {
+      font-size: 18px;
+      margin-bottom: 7px;
+    }
+
+    .example-box p {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .dark p {
+      color: #d2d2d2;
+    }
+
+    .finish {
+      text-align: center;
+      padding: 55px 20px 65px;
+      background: var(--gold-light);
+      border-radius: 25px;
+      margin: 30px 0 60px;
+    }
+
+    .finish-icon {
+      width: 58px;
+      height: 58px;
+      margin: 0 auto 17px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--white);
+      color: var(--gold-dark);
+      font-size: 25px;
+    }
+
+    .finish h2 {
+      font-size: clamp(25px, 6vw, 38px);
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    .finish p {
+      color: #625a4c;
+      max-width: 520px;
+      margin: auto;
+      font-size: 13px;
+    }
+
+    .finish a {
+      display: inline-block;
+      margin-top: 22px;
+      padding: 13px 21px;
+      border-radius: 30px;
+      background: var(--black);
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      text-align: center;
+      padding: 22px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    @media (min-width: 650px) {
+      header {
+        padding: 20px 35px;
+      }
+
+      main {
+        width: min(100% - 70px, 900px);
+      }
+
+      .hero {
+        padding: 85px 0 70px;
+      }
+
+      .steps {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .step {
+        display: block;
+      }
+
+      .step-number {
+        margin-bottom: 20px;
+      }
+
+      .example {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .example-box:first-child {
+        grid-column: span 2;
+      }
+    }
+
+    @media (min-width: 900px) {
+      .page {
+        box-shadow: 0 0 45px rgba(40,35,25,.06);
+      }
+
+      .steps {
+        gap: 18px;
+      }
+
+      .step {
+        padding: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <header>
+      <nav class="nav">
+        <a href="#" class="logo">Guia<span>.</span></a>
+        <a href="#passos" class="nav-link">Ver os passos</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="eyebrow">
+          <span class="eyebrow-icon">✓</span>
+          Guia rápido
+        </div>
+
+        <h1>Faça tudo <span>sem complicação.</span></h1>
+
+        <p class="hero-text">
+          Siga cada passo com calma. As instruções abaixo mostram exatamente o que você precisa fazer.
+        </p>
+
+        <a href="#passos" class="hero-button">
+          Começar agora <span>→</span>
+        </a>
+      </section>
+
+      <section class="section" id="passos">
+        <div class="section-heading">
+          <h2>Passo a passo</h2>
+          <p>Você só precisa seguir uma etapa de cada vez.</p>
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <div class="step-number">1</div>
+            <div>
+              <h3>Siga aqui</h3>
+              <p>Abra a opção indicada e localize o botão ou informação que mostramos.</p>
+            </div>
+          </article>
+
+          <article class="step">
+            <div class="step-number">2</div>
+            <div>
+              <h3>Faça isso</h3>
+              <p>Preencha os dados pedidos e confira se tudo está correto antes de continuar.</p>
+            </div>
+          </article>
+
+          <article class="step">
+            <div class="step-number">3</div>
+            <div>
+              <h3>Finalize</h3>
+              <p>Confirme a ação. Pronto! Agora sua tarefa está concluída.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="tip">
+          <strong>Uma dica</strong>
+          <p>Não precisa ter pressa. Leia cada instrução antes de passar para o próximo passo.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <h2>Exemplo simples</h2>
+          <p>Uma forma fácil de entender como cada etapa funciona.</p>
+        </div>
+
+        <div class="example">
+          <div class="example-box dark">
+            <div class="icon">1</div>
+            <h3>Siga aqui</h3>
+            <p>Procure pelo botão indicado. Ele estará sempre destacado para facilitar a identificação.</p>
+          </div>
+
+          <div class="example-box">
+            <div class="icon">2</div>
+            <h3>Faça isso</h3>
+            <p>Digite a informação solicitada e avance para a próxima etapa.</p>
+          </div>
+
+          <div class="example-box">
+            <div class="icon">✓</div>
+            <h3>Está pronto</h3>
+            <p>Depois de confirmar, você verá uma mensagem informando que deu tudo certo.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="finish">
+        <div class="finish-icon">✓</div>
+        <h2>Você chegou ao final.</h2>
+        <p>Seguindo os passos na ordem, fica muito mais fácil concluir a tarefa.</p>
+        <a href="#passos">Rever os passos</a>
+      </section>
+    </main>
+
+    <footer>
+      Guia rápido · Informações de exemplo
+    </footer>
+
+  </div>
+</body>
+</html>
