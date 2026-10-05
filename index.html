@@ -73,13 +73,14 @@
     }
 
     .logo {
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: -.5px;
+      display: inline-flex;
+      align-items: center;
     }
 
-    .logo span {
-      color: var(--gold);
+    .logo img {
+      width: 82px;
+      height: auto;
+      display: block;
     }
 
     .nav-link {
@@ -137,10 +138,14 @@
     }
 
     .hero-text {
-      max-width: 600px;
+      max-width: 650px;
       margin: auto;
       color: var(--muted);
       font-size: 15px;
+    }
+
+    .hero-title-gold {
+      color: var(--gold);
     }
 
     .hero-button {
@@ -221,6 +226,43 @@
     .step p {
       color: var(--muted);
       font-size: 13px;
+    }
+
+    .store-buttons {
+      display: grid;
+      gap: 9px;
+      margin-top: 14px;
+    }
+
+    .store-button, .whatsapp-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: var(--black);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      text-align: center;
+      transition: opacity .2s ease;
+    }
+
+    .store-button:hover, .whatsapp-button:hover {
+      opacity: .88;
+    }
+
+    .store-button svg, .whatsapp-button svg {
+      width: 19px;
+      height: 19px;
+      flex: 0 0 auto;
+    }
+
+    .whatsapp-button {
+      background: var(--gold-dark);
+      margin-top: 14px;
     }
 
     .tip {
@@ -401,7 +443,9 @@
 
     <header>
       <nav class="nav">
-        <a href="#" class="logo">Guia<span>.</span></a>
+        <a href="#" class="logo" aria-label="Flowblox">
+          <img src="data:image/png;base64,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" alt="Flowblox">
+        </a>
         <a href="#passos" class="nav-link">Ver os passos</a>
       </nav>
     </header>
@@ -413,14 +457,14 @@
           Guia rápido
         </div>
 
-        <h1>Faça tudo <span>sem complicação.</span></h1>
+        <h1><span class="hero-title-gold">Acessar</span> os detalhes da reunião<br>agora ficou mais simples.</h1>
 
         <p class="hero-text">
-          Siga cada passo com calma. As instruções abaixo mostram exatamente o que você precisa fazer.
+          A congregação Boqueirão fez um amoroso ajuste pra ficar mais simples de visualizar suas designações.
         </p>
 
         <a href="#passos" class="hero-button">
-          Começar agora <span>→</span>
+          Veja como fazer <span>→</span>
         </a>
       </section>
 
@@ -434,24 +478,38 @@
           <article class="step">
             <div class="step-number">1</div>
             <div>
-              <h3>Siga aqui</h3>
-              <p>Abra a opção indicada e localize o botão ou informação que mostramos.</p>
+              <h3>Primeiro passo</h3>
+              <p>Baixe o aplicativo Hourglass no seu celular:</p>
+              <div class="store-buttons">
+                <a class="store-button" href="https://play.google.com/store/apps/details?id=com.hourglass_app.hourglasstime&hl=pt_PT" target="_blank" rel="noopener noreferrer" aria-label="Baixar Hourglass pela Google Play">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.5 2.8 13.2 12 3.5 21.2c-.3-.5-.5-1-.5-1.7V4.5c0-.7.2-1.2.5-1.7Zm10.7 10.1 2.7-2.6 3.2 1.8c.9.5.9 1.3 0 1.8l-3.2 1.8-2.7-2.8Zm-1-1L4.8 2.3 16 8.7l-2.8 3.2Zm0 2L16 17.3 4.8 21.7l8.4-8.8Z"/></svg>
+                  Baixar na Google Play
+                </a>
+                <a class="store-button" href="https://apps.apple.com/br/app/hourglass-time/id927752129" target="_blank" rel="noopener noreferrer" aria-label="Baixar Hourglass pela App Store">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.7 12.7c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.7-1.3-.1-2.5.8-3.1.8-.7 0-1.6-.8-2.7-.8-1.4 0-2.7.8-3.4 2.1-1.5 2.5-.4 6.2 1.1 8.2.7 1 1.5 2.1 2.6 2.1 1 0 1.5-.7 2.8-.7 1.3 0 1.7.7 2.8.7 1.2 0 1.9-1 2.6-2 .8-1.1 1.1-2.2 1.1-2.3-.1 0-2.5-1-2.5-3Zm-2-6.4c.6-.7 1-1.7.9-2.7-.9 0-1.9.6-2.5 1.3-.5.6-1 1.6-.9 2.5 1 .1 1.9-.5 2.5-1.1Z"/></svg>
+                  Baixar na App Store
+                </a>
+              </div>
             </div>
           </article>
 
           <article class="step">
             <div class="step-number">2</div>
             <div>
-              <h3>Faça isso</h3>
-              <p>Preencha os dados pedidos e confira se tudo está correto antes de continuar.</p>
+              <h3>Segundo passo</h3>
+              <p>Peça seu código para acessar suas designações:</p>
+              <a class="whatsapp-button" href="https://api.whatsapp.com/send?phone=558391563698" target="_blank" rel="noopener noreferrer" aria-label="Pedir código pelo WhatsApp">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11.9 11.9 0 0 0 12.1 0C5.5 0 .2 5.3.2 11.9c0 2.1.6 4.2 1.6 6L.1 24l6.2-1.6a12 12 0 0 0 5.8 1.5h.1c6.5 0 11.8-5.3 11.8-11.9 0-3.2-1.3-6.2-3.5-8.5ZM12.1 21.8h-.1c-1.8 0-3.6-.5-5.1-1.4l-.4-.2-3.7 1 1-3.6-.2-.4a9.9 9.9 0 0 1-1.5-5.3c0-5.5 4.5-10 10-10 2.7 0 5.2 1 7.1 2.9a9.9 9.9 0 0 1 2.9 7.1c0 5.5-4.5 9.9-10 9.9Zm5.5-7.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.7 1-.8 1.2-.2.2-.3.3-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1 2.9 1.2 3.1c.2.2 2 3.1 4.8 4.3.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3Z"/></svg>
+                Pedir meu código
+              </a>
             </div>
           </article>
 
           <article class="step">
             <div class="step-number">3</div>
             <div>
-              <h3>Finalize</h3>
-              <p>Confirme a ação. Pronto! Agora sua tarefa está concluída.</p>
+              <h3>Tudo pronto</h3>
+              <p>Agora é só conferir suas designações!</p>
             </div>
           </article>
         </div>
@@ -464,27 +522,27 @@
 
       <section class="section">
         <div class="section-heading">
-          <h2>Exemplo simples</h2>
-          <p>Uma forma fácil de entender como cada etapa funciona.</p>
+          <h2>Entendera melhor</h2>
+          <p>Veja novamente o que fazer em cada etapa.</p>
         </div>
 
         <div class="example">
           <div class="example-box dark">
             <div class="icon">1</div>
-            <h3>Siga aqui</h3>
-            <p>Procure pelo botão indicado. Ele estará sempre destacado para facilitar a identificação.</p>
+            <h3>Primeiro passo</h3>
+            <p>Baixe o aplicativo Hourglass no seu celular usando a loja correspondente ao seu aparelho.</p>
           </div>
 
           <div class="example-box">
             <div class="icon">2</div>
-            <h3>Faça isso</h3>
-            <p>Digite a informação solicitada e avance para a próxima etapa.</p>
+            <h3>Segundo passo</h3>
+            <p>Peça seu código pelo WhatsApp para conseguir acessar suas designações.</p>
           </div>
 
           <div class="example-box">
             <div class="icon">✓</div>
-            <h3>Está pronto</h3>
-            <p>Depois de confirmar, você verá uma mensagem informando que deu tudo certo.</p>
+            <h3>Tudo pronto</h3>
+            <p>Com o aplicativo e o código em mãos, agora é só conferir suas designações!</p>
           </div>
         </div>
       </section>
@@ -498,7 +556,7 @@
     </main>
 
     <footer>
-      Guia rápido · Informações de exemplo
+      2026 · Congregação Boqueirão
     </footer>
 
   </div>
